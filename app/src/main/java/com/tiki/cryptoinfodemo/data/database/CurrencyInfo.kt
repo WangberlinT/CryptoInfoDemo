@@ -1,4 +1,4 @@
-package com.tiki.cryptoinfodemo.data
+package com.tiki.cryptoinfodemo.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,4 +10,10 @@ data class CurrencyInfo(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "symbol") val symbol: String,
     @ColumnInfo(name = "code") val code: String?,
+    @ColumnInfo(name = "type") val type: CurrencyType,
 )
+
+enum class CurrencyType {
+    CRYPTO,
+    FIAT
+}

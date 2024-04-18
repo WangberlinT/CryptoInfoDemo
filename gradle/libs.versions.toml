@@ -1,6 +1,6 @@
 [versions]
 agp = "8.3.2"
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 coreKtx = "1.13.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -10,7 +10,7 @@ material = "1.11.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
 roomVersion = "2.6.1"
-kspVersion = "1.9.23-1.0.20"
+kspVersion = "1.9.10-1.0.13"
 koinVersion = "3.5.0"
 truthVersion = "1.4.2"
 mockKVersion = "1.13.10"
@@ -24,6 +24,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinVersion" }
 koin-core = { module = "io.insert-koin:koin-core" }
 koin-android = { module = "io.insert-koin:koin-android" }

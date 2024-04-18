@@ -34,6 +34,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    packaging {
+        resources.excludes.addAll(
+            listOf(
+                "META-INF/LICENSE.md",
+                "META-INF/LICENSE-notice.md",
+            )
+        )
+    }
 }
 
 dependencies {
@@ -45,6 +54,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     /* room database */
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
     /* DI */
