@@ -178,4 +178,141 @@ class CurrencyInfoDaoTest {
         val searchResult = currencyInfoDao.search(pattern)
         Truth.assertThat(searchResult).isEqualTo(target)
     }
+
+    @Test
+    fun searchInCryptoCurrenciesCase1() = runBlocking {
+        val pattern = "Foo"
+        val target = listOf(
+            CurrencyInfo(
+                id = "Crypto1",
+                name = "Foobar",
+                symbol = "F1",
+                code = "F1",
+                type = CurrencyType.CRYPTO
+            ),
+            CurrencyInfo(
+                id = "Crypto2",
+                name = "BFoo",
+                symbol = "Foo2",
+                code = "F2",
+                type = CurrencyType.CRYPTO
+            ),
+            CurrencyInfo(
+                id = "Crypto3",
+                name = "Not Me",
+                symbol = "Not Me",
+                code = "Foo2",
+                type = CurrencyType.CRYPTO
+            ),
+        )
+
+        val currencies = target + listOf(
+            CurrencyInfo(
+                id = "Fiat1",
+                name = "Foo",
+                symbol = "F1",
+                code = "F1",
+                type = CurrencyType.FIAT
+            ),
+            CurrencyInfo(
+                id = "Fiat2",
+                name = "Not me",
+                symbol = "Foo2",
+                code = "Not me",
+                type = CurrencyType.FIAT
+            ),
+        )
+        currencyInfoDao.insertAll(currencies)
+        val searchResult = currencyInfoDao.searchInCryptoCurrencies(pattern)
+        Truth.assertThat(searchResult).isEqualTo(target)
+    }
+
+    @Test
+    fun searchInFiatCurrenciesCase1() = runBlocking {
+        val pattern = "Foo"
+        val target = listOf(
+            CurrencyInfo(
+                id = "Fiat1",
+                name = "Foobar",
+                symbol = "F1",
+                code = "F1",
+                type = CurrencyType.FIAT
+            ),
+            CurrencyInfo(
+                id = "Fiat2",
+                name = "BFoo",
+                symbol = "Foo2",
+                code = "F2",
+                type = CurrencyType.FIAT
+            ),
+            CurrencyInfo(
+                id = "Fiat3",
+                name = "Not Me",
+                symbol = "Not Me",
+                code = "Foo2",
+                type = CurrencyType.FIAT
+            ),
+        )
+        val fiat = target + listOf(
+            CurrencyInfo(
+                id = "Fiat4",
+                name = "not me",
+                symbol = "F1",
+                code = "F1",
+                type = CurrencyType.FIAT
+            ),
+            CurrencyInfo(
+                id = "Fiat5",
+                name = "Not me",
+                symbol = "Not me",
+                code = "Not me",
+                type = CurrencyType.FIAT
+            ),
+        )
+        val crypto = listOf(
+            CurrencyInfo(
+                id = "Crypto1",
+                name = "Foo",
+                symbol = "F1",
+                code = "F1",
+                type = CurrencyType.CRYPTO
+            ),
+            CurrencyInfo(
+                id = "Crypto2",
+                name = "Not me",
+                symbol = "Foo2",
+                code = "Not me",
+                type = CurrencyType.CRYPTO
+            ),
+        )
+        currencyInfoDao.insertAll(fiat + crypto)
+        val searchResult = currencyInfoDao.searchInFiatCurrencies(pattern)
+        Truth.assertThat(searchResult).isEqualTo(target)
+    }
+
+    @Test
+    fun deleteAll() = runBlocking {
+        val fiat = (1..5).map {
+            CurrencyInfo(
+                id = "Fiat$it",
+                name = "Dollar $it",
+                symbol = "F$it",
+                code = "F$it",
+                type = CurrencyType.FIAT
+            )
+        }
+        val crypto = (1..5).map {
+            CurrencyInfo(
+                id = "Crypto$it",
+                name = "Bitcoin $it",
+                symbol = "BTC$it",
+                code = "BTC$it",
+                type = CurrencyType.CRYPTO
+            )
+        }
+        currencyInfoDao.insertAll(fiat + crypto)
+        currencyInfoDao.deleteAll()
+        val allCurrencies = currencyInfoDao.getAll()
+        Truth.assertThat(allCurrencies).isEmpty()
+    }
 }
