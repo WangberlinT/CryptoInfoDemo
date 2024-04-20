@@ -28,6 +28,7 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinVersion" }
 koin-core = { module = "io.insert-koin:koin-core" }
 koin-android = { module = "io.insert-koin:koin-android" }
+gson = { group = "com.google.code.gson", name = "gson", version = "2.10.1" }
 
 # testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }

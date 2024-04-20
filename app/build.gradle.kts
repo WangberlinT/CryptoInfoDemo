@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
 
+    implementation(libs.gson)
 
     testImplementation(libs.androidx.room.testing)
     testImplementation(libs.junit)
