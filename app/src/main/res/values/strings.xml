@@ -4,4 +4,10 @@
     <string name="database_inserted">Database is inserted</string>
     <string name="no_result">No Result</string>
     <string name="try_btc">Try BTC</string>
+    <string name="remove">Remove</string>
+    <string name="insert">Insert</string>
+    <string name="fiat">Fiat</string>
+    <string name="crypto">crypto</string>
+    <string name="all">All</string>
+    <string name="settings">Settings</string>
 </resources>

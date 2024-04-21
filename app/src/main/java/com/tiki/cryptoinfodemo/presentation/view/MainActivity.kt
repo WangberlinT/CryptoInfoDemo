@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import com.tiki.cryptoinfodemo.R
 import com.tiki.cryptoinfodemo.common.launchAndCollectIn
 import com.tiki.cryptoinfodemo.databinding.ActivityMainBinding
@@ -65,6 +66,9 @@ class MainActivity : AppCompatActivity() {
         binding.crypto.setOnClickListener { viewModel.onCryptoCurrencyClick() }
         binding.fiat.setOnClickListener { viewModel.onFiatCurrencyClick() }
         binding.all.setOnClickListener { viewModel.onAllCurrencyClick() }
+        binding.settings.setOnClickListener {
+            binding.buttonGroup.isVisible = !binding.buttonGroup.isVisible
+        }
     }
 
 }

@@ -23,6 +23,10 @@ class MainActivityViewModel(
     private val _event = MutableSharedFlow<Event>()
     val event = _event.asSharedFlow()
 
+    init {
+        loadAndShowAllCurrencyInfo()
+    }
+
 
     fun onRemoveClick() = viewModelScope.launch {
         _currencyInfo.value = emptyList()
@@ -50,6 +54,16 @@ class MainActivityViewModel(
 
     fun onAllCurrencyClick() = viewModelScope.launch {
         _currencyInfo.value = loadCurrencyInfoUseCase.getAllCurrencyInfoList()
+    }
+
+    private fun loadAndShowAllCurrencyInfo() = viewModelScope.launch {
+        try {
+            updateLocalCurrencyInfoUseCase.updateLocalCurrencyInfoFromRemote()
+            _currencyInfo.value = loadCurrencyInfoUseCase.getAllCurrencyInfoList()
+        } catch (e: UpdateCurrencyInfoException) {
+            e.printStackTrace()
+            _event.emit(Event.Error(e.message ?: "Unknown error"))
+        }
     }
 
     sealed interface Event {

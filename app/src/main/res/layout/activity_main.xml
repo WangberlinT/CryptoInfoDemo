@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".presentation.view.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -19,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:contentDescription="All"
-        android:text="Remove"
+        android:contentDescription="@string/remove"
+        android:text="@string/remove"
         app:layout_constraintBottom_toTopOf="@id/insert"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -30,8 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:contentDescription="All"
-        android:text="Insert"
+        android:contentDescription="@string/insert"
+        android:text="@string/insert"
         app:layout_constraintBottom_toTopOf="@id/fiat"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -41,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:contentDescription="All"
-        android:text="Fiat"
+        android:contentDescription="@string/fiat"
+        android:text="@string/fiat"
         app:layout_constraintBottom_toTopOf="@id/crypto"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -52,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:contentDescription="All"
-        android:text="crypto"
+        android:contentDescription="@string/crypto"
+        android:text="@string/crypto"
         app:layout_constraintBottom_toTopOf="@id/all"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -63,8 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:contentDescription="All"
-        android:text="All"
+        android:contentDescription="@string/all"
+        android:text="@string/all"
         app:layout_constraintBottom_toTopOf="@id/settings"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -76,7 +77,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="20dp"
-        android:contentDescription="Settings"
+        android:contentDescription="@string/settings"
         android:src="@drawable/tool" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/buttonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="all,crypto,fiat,insert,remove" />
 </androidx.constraintlayout.widget.ConstraintLayout>

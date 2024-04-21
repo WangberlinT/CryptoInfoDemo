@@ -8,6 +8,9 @@ import com.tiki.cryptoinfodemo.domain.model.Currency
 import com.tiki.cryptoinfodemo.domain.model.FiatCurrency
 import com.tiki.cryptoinfodemo.domain.repository.RemoteCurrencyRepository
 
+/**
+ * Fake remote currency repository for testing since we don't have a real remote endpoint
+ */
 class FakeRemoteCurrencyRepository(
     private val gson: Gson
 ) : RemoteCurrencyRepository {
