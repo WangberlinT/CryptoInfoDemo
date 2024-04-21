@@ -1,4 +1,8 @@
-package com.tiki.cryptoinfodemo.domain
+package com.tiki.cryptoinfodemo.domain.repository
+
+import com.tiki.cryptoinfodemo.domain.model.CryptoCurrency
+import com.tiki.cryptoinfodemo.domain.model.Currency
+import com.tiki.cryptoinfodemo.domain.model.FiatCurrency
 
 interface LocalCurrencyRepository {
 

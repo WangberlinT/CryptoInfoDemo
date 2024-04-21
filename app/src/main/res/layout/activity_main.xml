@@ -5,11 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".presentation.view.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
-        android:name="com.tiki.cryptoinfodemo.ui.CurrencyListFragment"
+        android:name="com.tiki.cryptoinfodemo.presentation.view.CurrencyListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

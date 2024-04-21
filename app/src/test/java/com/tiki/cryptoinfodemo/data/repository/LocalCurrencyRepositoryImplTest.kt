@@ -1,13 +1,13 @@
 package com.tiki.cryptoinfodemo.data.repository
 
 import com.google.common.truth.Truth
-import com.tiki.cryptoinfodemo.data.LocalCurrencyRepositoryImpl
+import com.tiki.cryptoinfodemo.data.repositoryimpl.LocalCurrencyRepositoryImpl
 import com.tiki.cryptoinfodemo.data.database.CurrencyInfo
 import com.tiki.cryptoinfodemo.data.database.CurrencyInfoDao
 import com.tiki.cryptoinfodemo.data.database.CurrencyType
-import com.tiki.cryptoinfodemo.domain.CryptoCurrency
-import com.tiki.cryptoinfodemo.domain.FiatCurrency
-import com.tiki.cryptoinfodemo.domain.LocalCurrencyRepository
+import com.tiki.cryptoinfodemo.domain.model.CryptoCurrency
+import com.tiki.cryptoinfodemo.domain.model.FiatCurrency
+import com.tiki.cryptoinfodemo.domain.repository.LocalCurrencyRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

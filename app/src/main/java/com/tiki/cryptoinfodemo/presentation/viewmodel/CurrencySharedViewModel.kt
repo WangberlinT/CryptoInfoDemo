@@ -1,8 +1,8 @@
-package com.tiki.cryptoinfodemo.ui.viewmodel
+package com.tiki.cryptoinfodemo.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tiki.cryptoinfodemo.domain.Currency
+import com.tiki.cryptoinfodemo.domain.model.Currency
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

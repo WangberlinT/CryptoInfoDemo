@@ -1,9 +1,9 @@
-package com.tiki.cryptoinfodemo.ui.viewmodel
+package com.tiki.cryptoinfodemo.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tiki.cryptoinfodemo.domain.Currency
-import com.tiki.cryptoinfodemo.domain.CurrencyItemUi
+import com.tiki.cryptoinfodemo.domain.model.Currency
+import com.tiki.cryptoinfodemo.domain.model.CurrencyItemUi
 import com.tiki.cryptoinfodemo.domain.usecase.CurrencyToItemUiMapperUseCase
 import com.tiki.cryptoinfodemo.domain.usecase.SearchCurrencyUseCase
 import kotlinx.coroutines.Job

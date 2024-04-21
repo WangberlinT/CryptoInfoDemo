@@ -1,8 +1,9 @@
-package com.tiki.cryptoinfodemo.ui.viewmodel
+package com.tiki.cryptoinfodemo.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tiki.cryptoinfodemo.domain.Currency
+import com.tiki.cryptoinfodemo.domain.model.Currency
+import com.tiki.cryptoinfodemo.domain.model.UpdateCurrencyInfoException
 import com.tiki.cryptoinfodemo.domain.usecase.LoadCurrencyInfoUseCase
 import com.tiki.cryptoinfodemo.domain.usecase.UpdateLocalCurrencyInfoUseCase
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -30,7 +31,12 @@ class MainActivityViewModel(
     }
 
     fun onInsertClick() = viewModelScope.launch {
-        updateLocalCurrencyInfoUseCase.updateLocalCurrencyInfoFromRemote()
+        try {
+            updateLocalCurrencyInfoUseCase.updateLocalCurrencyInfoFromRemote()
+        } catch (e: UpdateCurrencyInfoException) {
+            e.printStackTrace()
+            _event.emit(Event.Error(e.message ?: "Unknown error"))
+        }
         _event.emit(Event.DatabaseInserted())
     }
 
@@ -49,5 +55,6 @@ class MainActivityViewModel(
     sealed interface Event {
         class DatabaseInserted : Event
         class DatabaseRemoved : Event
+        class Error(val message: String) : Event
     }
 }

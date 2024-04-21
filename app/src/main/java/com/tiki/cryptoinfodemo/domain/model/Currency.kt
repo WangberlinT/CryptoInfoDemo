@@ -1,4 +1,4 @@
-package com.tiki.cryptoinfodemo.domain
+package com.tiki.cryptoinfodemo.domain.model
 
 data class CryptoCurrency(
     val id: String,

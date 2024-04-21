@@ -1,12 +1,26 @@
 package com.tiki.cryptoinfodemo.domain.usecase
 
-import com.tiki.cryptoinfodemo.domain.CryptoCurrency
-import com.tiki.cryptoinfodemo.domain.Currency
-import com.tiki.cryptoinfodemo.domain.LocalCurrencyRepository
+import com.tiki.cryptoinfodemo.domain.model.CryptoCurrency
+import com.tiki.cryptoinfodemo.domain.model.Currency
+import com.tiki.cryptoinfodemo.domain.repository.LocalCurrencyRepository
 
 interface LoadCurrencyInfoUseCase {
+    /**
+     * Get all currency info list from local storage
+     * @return List of [Currency]
+     */
     suspend fun getAllCurrencyInfoList(): List<Currency>
+
+    /**
+     * Get all crypto currency info list from local storage
+     * @return List of [CryptoCurrency]
+     */
     suspend fun getCryptoCurrencyInfoList(): List<CryptoCurrency>
+
+    /**
+     * Get all fiat currency info list from local storage
+     * @return List of [Currency]
+     */
     suspend fun getFiatCurrencyInfoList(): List<Currency>
 }
 

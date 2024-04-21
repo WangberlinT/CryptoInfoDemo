@@ -1,9 +1,9 @@
 package com.tiki.cryptoinfodemo.domain.usecase
 
 import com.google.common.truth.Truth
-import com.tiki.cryptoinfodemo.domain.CryptoCurrency
-import com.tiki.cryptoinfodemo.domain.CurrencyItemUi
-import com.tiki.cryptoinfodemo.domain.FiatCurrency
+import com.tiki.cryptoinfodemo.domain.model.CryptoCurrency
+import com.tiki.cryptoinfodemo.domain.model.CurrencyItemUi
+import com.tiki.cryptoinfodemo.domain.model.FiatCurrency
 import org.junit.Before
 import org.junit.Test
 

@@ -1,10 +1,16 @@
 package com.tiki.cryptoinfodemo.domain.usecase
 
-import com.tiki.cryptoinfodemo.domain.CryptoCurrency
-import com.tiki.cryptoinfodemo.domain.Currency
-import com.tiki.cryptoinfodemo.domain.FiatCurrency
+import com.tiki.cryptoinfodemo.domain.model.CryptoCurrency
+import com.tiki.cryptoinfodemo.domain.model.Currency
+import com.tiki.cryptoinfodemo.domain.model.FiatCurrency
 
 interface SearchCurrencyUseCase {
+    /**
+     * Search for currencies that match the query
+     * @param query the query to search for
+     * @param list the list of currencies to search in
+     * @return the list of currencies that match the query
+     */
     suspend fun search(query: String, list: List<Currency>): List<Currency>
 }
 

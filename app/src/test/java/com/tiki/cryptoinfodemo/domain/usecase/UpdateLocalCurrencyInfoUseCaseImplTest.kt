@@ -1,7 +1,7 @@
 package com.tiki.cryptoinfodemo.domain.usecase
 
-import com.tiki.cryptoinfodemo.domain.LocalCurrencyRepository
-import com.tiki.cryptoinfodemo.domain.RemoteCurrencyRepository
+import com.tiki.cryptoinfodemo.domain.repository.LocalCurrencyRepository
+import com.tiki.cryptoinfodemo.domain.repository.RemoteCurrencyRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK

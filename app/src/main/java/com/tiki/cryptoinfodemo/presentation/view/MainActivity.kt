@@ -1,4 +1,4 @@
-package com.tiki.cryptoinfodemo.ui
+package com.tiki.cryptoinfodemo.presentation.view
 
 import android.os.Bundle
 import android.widget.Toast
@@ -9,8 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.tiki.cryptoinfodemo.R
 import com.tiki.cryptoinfodemo.common.launchAndCollectIn
 import com.tiki.cryptoinfodemo.databinding.ActivityMainBinding
-import com.tiki.cryptoinfodemo.ui.viewmodel.CurrencySharedViewModel
-import com.tiki.cryptoinfodemo.ui.viewmodel.MainActivityViewModel
+import com.tiki.cryptoinfodemo.presentation.viewmodel.CurrencySharedViewModel
+import com.tiki.cryptoinfodemo.presentation.viewmodel.MainActivityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity() {
 
                 is MainActivityViewModel.Event.DatabaseRemoved -> {
                     toast(getString(R.string.database_cleared))
+                }
+
+                is MainActivityViewModel.Event.Error -> {
+                    toast(it.message)
                 }
             }
         }

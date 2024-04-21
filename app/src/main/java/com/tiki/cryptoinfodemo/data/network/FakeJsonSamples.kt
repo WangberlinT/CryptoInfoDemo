@@ -1,4 +1,4 @@
-package com.tiki.cryptoinfodemo.data
+package com.tiki.cryptoinfodemo.data.network
 
 val cryptoSamples = """
 [

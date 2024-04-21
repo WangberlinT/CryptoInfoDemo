@@ -1,4 +1,4 @@
-package com.tiki.cryptoinfodemo.ui
+package com.tiki.cryptoinfodemo.presentation.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tiki.cryptoinfodemo.common.launchAndCollectIn
 import com.tiki.cryptoinfodemo.databinding.FragmentCurrencyListBinding
-import com.tiki.cryptoinfodemo.ui.adapter.CurrencyListAdapter
-import com.tiki.cryptoinfodemo.ui.adapter.SearchListAdapter
-import com.tiki.cryptoinfodemo.ui.viewmodel.CurrencyListViewModel
-import com.tiki.cryptoinfodemo.ui.viewmodel.CurrencySharedViewModel
+import com.tiki.cryptoinfodemo.presentation.adapter.CurrencyListAdapter
+import com.tiki.cryptoinfodemo.presentation.adapter.SearchListAdapter
+import com.tiki.cryptoinfodemo.presentation.viewmodel.CurrencyListViewModel
+import com.tiki.cryptoinfodemo.presentation.viewmodel.CurrencySharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CurrencyListFragment : Fragment() {

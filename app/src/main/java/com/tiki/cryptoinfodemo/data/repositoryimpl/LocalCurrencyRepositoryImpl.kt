@@ -1,12 +1,12 @@
-package com.tiki.cryptoinfodemo.data
+package com.tiki.cryptoinfodemo.data.repositoryimpl
 
 import com.tiki.cryptoinfodemo.data.database.CurrencyInfo
 import com.tiki.cryptoinfodemo.data.database.CurrencyInfoDao
 import com.tiki.cryptoinfodemo.data.database.CurrencyType
-import com.tiki.cryptoinfodemo.domain.CryptoCurrency
-import com.tiki.cryptoinfodemo.domain.Currency
-import com.tiki.cryptoinfodemo.domain.FiatCurrency
-import com.tiki.cryptoinfodemo.domain.LocalCurrencyRepository
+import com.tiki.cryptoinfodemo.domain.model.CryptoCurrency
+import com.tiki.cryptoinfodemo.domain.model.Currency
+import com.tiki.cryptoinfodemo.domain.model.FiatCurrency
+import com.tiki.cryptoinfodemo.domain.repository.LocalCurrencyRepository
 
 class LocalCurrencyRepositoryImpl(
     private val currencyInfoDao: CurrencyInfoDao

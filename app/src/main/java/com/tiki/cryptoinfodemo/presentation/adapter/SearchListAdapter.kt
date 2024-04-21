@@ -1,4 +1,4 @@
-package com.tiki.cryptoinfodemo.ui.adapter
+package com.tiki.cryptoinfodemo.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.tiki.cryptoinfodemo.databinding.ItemSearchCurrencyBinding
-import com.tiki.cryptoinfodemo.domain.CurrencyItemUi
+import com.tiki.cryptoinfodemo.domain.model.CurrencyItemUi
 
 class SearchListAdapter
     : ListAdapter<CurrencyItemUi, SearchListAdapter.SearchListListVH>(DiffCallback) {

@@ -1,9 +1,9 @@
 package com.tiki.cryptoinfodemo.domain.usecase
 
 import com.google.common.truth.Truth
-import com.tiki.cryptoinfodemo.domain.CryptoCurrency
-import com.tiki.cryptoinfodemo.domain.FiatCurrency
-import com.tiki.cryptoinfodemo.domain.LocalCurrencyRepository
+import com.tiki.cryptoinfodemo.domain.model.CryptoCurrency
+import com.tiki.cryptoinfodemo.domain.model.FiatCurrency
+import com.tiki.cryptoinfodemo.domain.repository.LocalCurrencyRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
