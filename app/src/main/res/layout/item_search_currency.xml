@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_margin="12dp"
         android:background="@drawable/bg_rounded"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/neutral_dark"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -31,6 +31,15 @@
         app:layout_constraintStart_toEndOf="@id/firstChar"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Bitcoin" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/neutral_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/name" />
 
     <TextView
         android:id="@+id/code"

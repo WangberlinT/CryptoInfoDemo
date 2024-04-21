@@ -1,6 +1,7 @@
 package com.tiki.cryptoinfodemo.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -36,6 +37,22 @@ class MainActivity : AppCompatActivity() {
         viewModel.currencyInfo.launchAndCollectIn(this) {
             sharedViewModel.onCurrencyInfoSourceChange(it)
         }
+
+        viewModel.event.launchAndCollectIn(this) {
+            when (it) {
+                is MainActivityViewModel.Event.DatabaseInserted -> {
+                    toast(getString(R.string.database_inserted))
+                }
+
+                is MainActivityViewModel.Event.DatabaseRemoved -> {
+                    toast(getString(R.string.database_cleared))
+                }
+            }
+        }
+    }
+
+    private fun toast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setupListeners() {

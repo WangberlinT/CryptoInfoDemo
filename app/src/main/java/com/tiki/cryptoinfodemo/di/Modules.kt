@@ -12,6 +12,8 @@ import com.tiki.cryptoinfodemo.domain.usecase.CurrencyToItemUiMapperImpl
 import com.tiki.cryptoinfodemo.domain.usecase.CurrencyToItemUiMapperUseCase
 import com.tiki.cryptoinfodemo.domain.usecase.LoadCurrencyInfoUseCase
 import com.tiki.cryptoinfodemo.domain.usecase.LoadCurrencyInfoUseCaseImpl
+import com.tiki.cryptoinfodemo.domain.usecase.SearchCurrencyUseCase
+import com.tiki.cryptoinfodemo.domain.usecase.SearchCurrencyUseCaseImpl
 import com.tiki.cryptoinfodemo.domain.usecase.UpdateLocalCurrencyInfoUseCase
 import com.tiki.cryptoinfodemo.domain.usecase.UpdateLocalCurrencyInfoUseCaseImpl
 import com.tiki.cryptoinfodemo.ui.viewmodel.CurrencyListViewModel
@@ -38,9 +40,10 @@ val appModule = module {
 
     factory<LoadCurrencyInfoUseCase> { LoadCurrencyInfoUseCaseImpl(get()) }
     factory<UpdateLocalCurrencyInfoUseCase> { UpdateLocalCurrencyInfoUseCaseImpl(get(), get()) }
-    factory<CurrencyToItemUiMapperUseCase> { CurrencyToItemUiMapperImpl(get()) }
+    factory<CurrencyToItemUiMapperUseCase> { CurrencyToItemUiMapperImpl() }
+    factory<SearchCurrencyUseCase> { SearchCurrencyUseCaseImpl() }
 
     viewModel { CurrencySharedViewModel() }
     viewModel { MainActivityViewModel(get(), get()) }
-    viewModel { CurrencyListViewModel(get()) }
+    viewModel { CurrencyListViewModel(get(), get()) }
 }

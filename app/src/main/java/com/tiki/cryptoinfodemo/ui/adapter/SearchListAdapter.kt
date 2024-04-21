@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.tiki.cryptoinfodemo.databinding.ItemCurrencyBinding
+import androidx.recyclerview.widget.RecyclerView
+import com.tiki.cryptoinfodemo.databinding.ItemSearchCurrencyBinding
 import com.tiki.cryptoinfodemo.domain.CurrencyItemUi
 
-class CurrencyListAdapter :
-    ListAdapter<CurrencyItemUi, CurrencyListAdapter.CurrencyListVH>(DiffCallback) {
+class SearchListAdapter
+    : ListAdapter<CurrencyItemUi, SearchListAdapter.SearchListListVH>(DiffCallback) {
 
     companion object DiffCallback : DiffUtil.ItemCallback<CurrencyItemUi>() {
         override fun areItemsTheSame(oldItem: CurrencyItemUi, newItem: CurrencyItemUi): Boolean {
@@ -23,7 +23,8 @@ class CurrencyListAdapter :
 
     }
 
-    class CurrencyListVH(private val binding: ItemCurrencyBinding) : ViewHolder(binding.root) {
+    class SearchListListVH(private val binding: ItemSearchCurrencyBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: CurrencyItemUi) {
             binding.name.text = item.name
@@ -34,13 +35,13 @@ class CurrencyListAdapter :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyListVH {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchListListVH {
         val binding =
-            ItemCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CurrencyListVH(binding)
+            ItemSearchCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SearchListListVH(binding)
     }
 
-    override fun onBindViewHolder(holder: CurrencyListVH, position: Int) {
+    override fun onBindViewHolder(holder: SearchListListVH, position: Int) {
         holder.bind(getItem(position))
     }
 }
