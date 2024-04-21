@@ -6,6 +6,7 @@ import com.tiki.cryptoinfodemo.domain.Currency
 import com.tiki.cryptoinfodemo.domain.CurrencyItemUi
 import com.tiki.cryptoinfodemo.domain.usecase.CurrencyToItemUiMapperUseCase
 import com.tiki.cryptoinfodemo.domain.usecase.SearchCurrencyUseCase
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -24,20 +25,43 @@ class CurrencyListViewModel(
     val searchResult = _searchResult.asStateFlow()
 
     private var searchQuery: String = ""
+    private var searchJob: Job? = null
 
 
     fun onSourceCurrencyInfoListChange(currencySource: List<Currency>) {
         sourceCurrencyInfoList = currencySource
-        _currencyInfoUiList.value = currencySource.map {
+        val currencyInfoUiList = currencySource.map {
             currencyToItemUiMapperUseCase(it)
+        }
+        _currencyInfoUiList.value = currencyInfoUiList
+        search(searchQuery)
+    }
+
+    fun onSearchQueryChange(query: String) {
+        searchQuery = query
+        search(query)
+    }
+
+    fun onSearchFinished() {
+        searchJob?.cancel()
+        _searchResult.value = emptyList()
+    }
+
+    fun getSearchQuery() = searchQuery
+
+    private fun search(query: String) {
+        if (query.isEmpty()) {
+            onSearchFinished()
+            return
+        }
+
+        if (searchJob?.isActive == true) searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            val result = searchCurrencyUseCase.search(searchQuery, sourceCurrencyInfoList)
+            _searchResult.value = result.map {
+                currencyToItemUiMapperUseCase(it)
+            }
         }
     }
 
-    fun onSearchQueryChange(query: String) = viewModelScope.launch {
-        searchQuery = query
-        val result = searchCurrencyUseCase.search(query, sourceCurrencyInfoList)
-        _searchResult.value = result.map {
-            currencyToItemUiMapperUseCase(it)
-        }
-    }
 }

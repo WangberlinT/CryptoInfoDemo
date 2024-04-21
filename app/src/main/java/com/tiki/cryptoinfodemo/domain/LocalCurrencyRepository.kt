@@ -8,12 +8,6 @@ interface LocalCurrencyRepository {
 
     suspend fun getAllCurrencies(): List<Currency>
 
-    suspend fun searchInCryptoCurrencies(query: String): List<CryptoCurrency>
-
-    suspend fun searchInFiatCurrencies(query: String): List<FiatCurrency>
-
-    suspend fun search(query: String): List<Currency>
-
     suspend fun insertAllCurrencies(currencies: List<Currency>)
 
     suspend fun removeAllCurrencies()

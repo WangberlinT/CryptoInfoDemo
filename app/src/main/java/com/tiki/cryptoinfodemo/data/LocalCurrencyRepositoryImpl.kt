@@ -23,18 +23,6 @@ class LocalCurrencyRepositoryImpl(
         return currencyInfoDao.getAll().map { it.toCurrency() }
     }
 
-    override suspend fun searchInCryptoCurrencies(query: String): List<CryptoCurrency> {
-        return currencyInfoDao.searchInCryptoCurrencies(query).map { it.toCryptoCurrency() }
-    }
-
-    override suspend fun searchInFiatCurrencies(query: String): List<FiatCurrency> {
-        return currencyInfoDao.searchInFiatCurrencies(query).map { it.toFiatCurrency() }
-    }
-
-    override suspend fun search(query: String): List<Currency> {
-        return currencyInfoDao.search(query).map { it.toCurrency() }
-    }
-
     override suspend fun insertAllCurrencies(currencies: List<Currency>) {
         currencyInfoDao.insertAll(currencies.map { it.toCurrencyInfo() })
     }

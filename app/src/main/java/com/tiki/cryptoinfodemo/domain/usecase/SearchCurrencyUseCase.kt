@@ -11,12 +11,23 @@ interface SearchCurrencyUseCase {
 
 class SearchCurrencyUseCaseImpl : SearchCurrencyUseCase {
     override suspend fun search(query: String, list: List<Currency>): List<Currency> {
+        if (query.isEmpty()) return emptyList()
         val pattern = Regex("""\b$query""", option = RegexOption.IGNORE_CASE)
         return list.filter {
             when (it) {
-                is CryptoCurrency -> pattern.containsMatchIn(it.name) || pattern.containsMatchIn(it.symbol)
-                is FiatCurrency -> pattern.containsMatchIn(it.name) || pattern.containsMatchIn(it.symbol)
+                is CryptoCurrency -> matchInCryptoCurrencies(pattern, it)
+                is FiatCurrency -> matchInFiatCurrencies(pattern, it)
             }
         }
+    }
+
+    private fun matchInCryptoCurrencies(pattern: Regex, currency: CryptoCurrency): Boolean {
+        return pattern.containsMatchIn(currency.name) || pattern.containsMatchIn(currency.symbol)
+    }
+
+    private fun matchInFiatCurrencies(pattern: Regex, currency: FiatCurrency): Boolean {
+        return pattern.containsMatchIn(currency.name) || pattern.containsMatchIn(currency.symbol) || pattern.containsMatchIn(
+            currency.code
+        )
     }
 }

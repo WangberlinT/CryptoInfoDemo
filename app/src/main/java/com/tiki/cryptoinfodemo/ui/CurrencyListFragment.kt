@@ -54,6 +54,10 @@ class CurrencyListFragment : Fragment() {
         binding.searchView.editText.addTextChangedListener { editable ->
             viewModel.onSearchQueryChange(editable.toString())
         }
+        binding.searchView.toolbar.setNavigationOnClickListener {
+            viewModel.onSearchFinished()
+            binding.searchView.hide()
+        }
     }
 
     private fun setupObservers() {
