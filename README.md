@@ -1,5 +1,18 @@
 # Crypto.com assignment
 
+Thanks for the opportunity to work on this assignment~
+
+Function checklist:
+[x] Reusable CurrencyListFragment
+[x] Different UI for Crypto and Fiat currencies, normal and search states
+[x] Empty state for CurrencyListFragment search page
+[x] CurrencyListFragment search functionality: filter by name, code, and symbol
+[x] Cancelable search function
+[x] Buttons on MainActivity: Insert, Delete, Crypto source, Fiat source, All
+[x] Unit Test + Instrumented Test(for DAO) with good coverage(viewmodel, repositories, usecases 100%
+class coverage)
+
+
 ## Project Structure
 
 Clean Architecture + MVVM
@@ -23,11 +36,11 @@ Clean Architecture + MVVM
 
 ## Libraries
 
-Dependency Injection: Koin
-Database: Room SQLite
-Asynchronous Tasks: Coroutines
-UI: ViewBinding, View based UI,
-Testing: JUnit, Mockk, Truth, Turbine
+- Dependency Injection: Koin
+- Database: Room
+- Asynchronous Tasks: Coroutines
+- UI: ViewBinding, View based UI,
+- Testing: JUnit, Mockk, Truth, Turbine
 
 ## Testing
 
