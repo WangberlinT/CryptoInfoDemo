@@ -33,11 +33,11 @@ class MainActivityViewModel(
     fun onInsertClick() = viewModelScope.launch {
         try {
             updateLocalCurrencyInfoUseCase.updateLocalCurrencyInfoFromRemote()
+            _event.emit(Event.DatabaseInserted())
         } catch (e: UpdateCurrencyInfoException) {
             e.printStackTrace()
             _event.emit(Event.Error(e.message ?: "Unknown error"))
         }
-        _event.emit(Event.DatabaseInserted())
     }
 
     fun onCryptoCurrencyClick() = viewModelScope.launch {

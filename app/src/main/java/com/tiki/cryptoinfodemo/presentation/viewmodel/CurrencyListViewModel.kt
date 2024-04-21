@@ -34,11 +34,15 @@ class CurrencyListViewModel(
             currencyToItemUiMapperUseCase(it)
         }
         _currencyInfoUiList.value = currencyInfoUiList
-        search(searchQuery)
+        if (searchQuery.isNotEmpty()) search(searchQuery)
     }
 
     fun onSearchQueryChange(query: String) {
         searchQuery = query
+        if (query.isEmpty()) {
+            onSearchFinished()
+            return
+        }
         search(query)
     }
 
@@ -50,14 +54,9 @@ class CurrencyListViewModel(
     fun getSearchQuery() = searchQuery
 
     private fun search(query: String) {
-        if (query.isEmpty()) {
-            onSearchFinished()
-            return
-        }
-
         if (searchJob?.isActive == true) searchJob?.cancel()
         searchJob = viewModelScope.launch {
-            val result = searchCurrencyUseCase.search(searchQuery, sourceCurrencyInfoList)
+            val result = searchCurrencyUseCase.search(query, sourceCurrencyInfoList)
             _searchResult.value = result.map {
                 currencyToItemUiMapperUseCase(it)
             }

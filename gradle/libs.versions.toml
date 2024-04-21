@@ -36,6 +36,8 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "j
 truth = { group = "com.google.truth", name = "truth", version.ref = "truthVersion" }
 mockK = { group = "io.mockk", name = "mockk", version.ref = "mockKVersion" }
 androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "roomVersion" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version = "1.7.3" }
+cashapp-turbine = { group = "app.cash.turbine", name = "turbine", version = "1.1.0" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
