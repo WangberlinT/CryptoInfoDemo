@@ -2,4 +2,6 @@
     <string name="app_name">CryptoInfoDemo</string>
     <string name="database_cleared">Database is cleared</string>
     <string name="database_inserted">Database is inserted</string>
+    <string name="no_result">No Result</string>
+    <string name="try_btc">Try BTC</string>
 </resources>

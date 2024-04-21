@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -64,6 +65,7 @@ class CurrencyListFragment : Fragment() {
         }
         viewModel.searchResult.launchAndCollectIn(viewLifecycleOwner) {
             searchListAdapter.submitList(it)
+            binding.emptyView.root.isVisible = it.isEmpty()
         }
     }
 
