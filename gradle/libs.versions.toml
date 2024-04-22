@@ -14,6 +14,7 @@ kspVersion = "1.9.10-1.0.13"
 koinVersion = "3.5.0"
 truthVersion = "1.4.2"
 mockKVersion = "1.13.10"
+retrofitVersion = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +39,8 @@ mockK = { group = "io.mockk", name = "mockk", version.ref = "mockKVersion" }
 androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "roomVersion" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version = "1.7.3" }
 cashapp-turbine = { group = "app.cash.turbine", name = "turbine", version = "1.1.0" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

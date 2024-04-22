@@ -9,6 +9,7 @@ Function checklist:
 - [x] CurrencyListFragment search functionality: filter by name, code, and symbol
 - [x] Cancelable search function
 - [x] Buttons on MainActivity: Insert, Delete, Crypto source, Fiat source, All
+- [x] Fetching Fiat and Crypto data from the network
 - [x] Unit Test + Instrumented Test(for DAO) with good coverage(viewmodel, repositories, usecases 100%
 class coverage)
 
@@ -20,7 +21,7 @@ Clean Architecture + MVVM
 **Data Layer:**
 
 - Repository implementations
-- Network request(Fake)
+- Network request
 - Database operations
 
 **Domain Layer:**
@@ -39,6 +40,7 @@ Clean Architecture + MVVM
 - Dependency Injection: Koin
 - Database: Room
 - Asynchronous Tasks: Coroutines
+- Network: Retrofit, OkHttp
 - UI: ViewBinding, View based UI,
 - Testing: JUnit, Mockk, Truth, Turbine
 

@@ -64,6 +64,8 @@ dependencies {
     implementation(libs.koin.android)
 
     implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
 
     testImplementation(libs.androidx.room.testing)
     testImplementation(libs.junit)
